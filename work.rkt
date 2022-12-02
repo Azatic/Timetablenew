@@ -33,8 +33,7 @@ d)))))
 ;как выглядят основные объекты: schedallgroup
 ;teachersched
 ;schedclass
-;можно как написать, беру каку. то функцию на самой схеме, одним из конъюнктов которой будет сама проверка на возможность вставить нужную пару в нужное место
-;(define (insertfri1 subjteacher teachersched subj schedonegroup classes schedclass)
+
 
 (define (ins1 subj schedgroup teachersched schedclass namegroup) ;в функцию передается расписание уже на определенный день, после чего на первую пару вставляется предмет
   (conde
@@ -304,9 +303,9 @@ d)))))
   (conde
    [(inslecmonday subj teachersched first second third fourth schedclass)]
    [(inslectuesday subj teachersched first second third fourth schedclass)]
-   [(inslecwednesday subj teachersched first second third fourth schedclass)];без четверга делает за 3 секунды, с ним не делает и за секунд 20, почему
-   [(inslecthursday subj teachersched first second third fourth schedclass)];с полной назрузкой за 4,5 секунды. Видимо связано с тем, что перебор неудобен в сторону четверга
-   [(inslecfriday subj teachersched first second third fourth schedclass)]; пятницей без четверга тоже 4 секунды
+   [(inslecwednesday subj teachersched first second third fourth schedclass)];
+   [(inslecthursday subj teachersched first second third fourth schedclass)];
+   [(inslecfriday subj teachersched first second third fourth schedclass)]; 
    ))
 
 (define (lec studyplanlec first second third fourth allteachersched schedclass classessubj) 
@@ -364,7 +363,7 @@ d)))))
                   
                   (== q `(,b07,b08,b09,b10,c07,c08,c09,c10,a1,a2,a3,a4,a5,a6,a7,a8,c1,b1,b2,b3,b4,m1,m2,m3,m4)))))
 
-(run 5 (q) (=/= q 5))
+
 
 
 
