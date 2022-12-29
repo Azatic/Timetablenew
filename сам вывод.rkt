@@ -6,8 +6,8 @@
 (require racket/format)
 (require racket/date)
 
-)
-    ))
+
+    
 (define sched '((((matanlec1 Иванов 4аудитория) (matanlec2 Иванов 4аудитория) (alglec Петров 4аудитория) (geomlec Васечкин 4аудитория))
    ((inflec 4препод 4аудитория) (difflec 4препод 4аудитория) (geom1 преп3 4аудитория) _.0)
    (_.1 (matan1 преп1 4аудитория) (diff1 преп4 4аудитория) _.2)
@@ -117,5 +117,5 @@
  (send xlsx add-data-sheet #:sheet_name "DataSheet" #:sheet_data sheet_data)
 
 
-(write-xlsx-file xlsx "Semen.xlsx"));
+(write-xlsx-file xlsx "Sched.xlsx"));
 
