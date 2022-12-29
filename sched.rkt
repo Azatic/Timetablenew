@@ -106,7 +106,7 @@ d)))))
            (sched a4 a5 a6 schedclass classessubj b1 b2 allclassnumber))
            ]
    ))
-≈
+
 (define (inslecture1 subj first second third fourth teachersched schedclass potokname teachername classnumber)
    (fresh (a1 a2 a3 a4 a5 a6 a7 b1 b2 b3 b4 b5 b6 b7 c1 c2 c3 c4 c5 c6 c7 x1 x2 x3 x4 x5 x6 x7 n1 n2 n3 n4 n5 n6 n7 m1 m2 m3 m4 m5 m6 m7 forstudent forteacher)
          (== teachersched `(,a1,a2,a3,a4))
