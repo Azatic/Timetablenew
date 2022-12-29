@@ -70,18 +70,22 @@ d)))))
           [(ins2 subj a2 b2 c2 namegroup teachername classnumber)]
           [(ins2 subj a3 b3 c3 namegroup teachername classnumber)]
           [(ins2 subj a4 b4 c4 namegroup teachername classnumber)]
+          [(ins2 subj a5 b5 c5 namegroup teachername classnumber)]
           [(ins3 subj a1 b1 c1 namegroup teachername classnumber)]
           [(ins3 subj a2 b2 c2 namegroup teachername classnumber)]
           [(ins3 subj a3 b3 c3 namegroup teachername classnumber)]
           [(ins3 subj a4 b4 c4 namegroup teachername classnumber)]
+          [(ins3 subj a5 b5 c5 namegroup teachername classnumber)]
           [(ins4 subj a1 b1 c1 namegroup teachername classnumber)]
           [(ins4 subj a2 b2 c2 namegroup teachername classnumber)]
           [(ins4 subj a3 b3 c3 namegroup teachername classnumber)]
           [(ins4 subj a4 b4 c4 namegroup teachername classnumber)]
+          [(ins4 subj a5 b5 c5 namegroup teachername classnumber)]         
           [(ins1 subj a1 b1 c1 namegroup teachername classnumber)]
           [(ins1 subj a2 b2 c2 namegroup teachername classnumber)]
           [(ins1 subj a3 b3 c3 namegroup teachername classnumber)]
           [(ins1 subj a4 b4 c4 namegroup teachername classnumber)]
+          [(ins1 subj a5 b5 c5 namegroup teachername classnumber)]
           )))
 
 (define (timetableonegroup studyplan schedgroup teachersched schedclass classessubj namegroup allteachername allclassnumber)
@@ -102,18 +106,19 @@ d)))))
            (sched a4 a5 a6 schedclass classessubj b1 b2 allclassnumber))
            ]
    ))
-;ins4 subj schedgroup teachersched schedclass namegroup teachername classnumber
+≈
 (define (inslecture1 subj first second third fourth teachersched schedclass potokname teachername classnumber)
-   (fresh (a1 a2 a3 a4 a5 a6 a7 b1 b2 b3 b4 b5 b6 b7 c1 c2 c3 c4 c5 c6 c7 x1 x2 x3 x4 x5 x6 x7 n1 n2 n3 n4 n5 n6 n7 m1 m2 m3 m4 m5 m6 m7 forstudent)
+   (fresh (a1 a2 a3 a4 a5 a6 a7 b1 b2 b3 b4 b5 b6 b7 c1 c2 c3 c4 c5 c6 c7 x1 x2 x3 x4 x5 x6 x7 n1 n2 n3 n4 n5 n6 n7 m1 m2 m3 m4 m5 m6 m7 forstudent forteacher)
          (== teachersched `(,a1,a2,a3,a4))
          (== first `(,b1,b2,b3,b4))
          (== second `(,c1,c2,c3,c4))
          (== third `(,x1,x2,x3,x4))
          (== fourth `(,n1,n2,n3,n4))
          (== schedclass `(,m1,m2,m3,m4))
-         (== forstudent `(,subj,teachername,classnumber,potokname))
+         (== forstudent `(,subj,teachername,classnumber))
+          (== forteacher `(,subj,classnumber,potokname))
          (conde
-          [(== a1 forstudent)
+          [(== a1 forteacher)
             (== b1 forstudent)
             (== c1 forstudent)
             (== x1 forstudent)
@@ -123,16 +128,17 @@ d)))))
           )))
 
 (define (inslecture2 subj first second third fourth teachersched schedclass potokname teachername classnumber)
-   (fresh (a1 a2 a3 a4 a5 a6 a7 b1 b2 b3 b4 b5 b6 b7 c1 c2 c3 c4 c5 c6 c7 x1 x2 x3 x4 x5 x6 x7 n1 n2 n3 n4 n5 n6 n7 m1 m2 m3 m4 m5 m6 m7 forstudent)
+   (fresh (a1 a2 a3 a4 a5 a6 a7 b1 b2 b3 b4 b5 b6 b7 c1 c2 c3 c4 c5 c6 c7 x1 x2 x3 x4 x5 x6 x7 n1 n2 n3 n4 n5 n6 n7 m1 m2 m3 m4 m5 m6 m7 forstudent forteacher)
          (== teachersched `(,a1,a2,a3,a4))
          (== first `(,b1,b2,b3,b4))
          (== second `(,c1,c2,c3,c4))
          (== third `(,x1,x2,x3,x4))
          (== fourth `(,n1,n2,n3,n4))
          (== schedclass `(,m1,m2,m3,m4))
-         (== forstudent `(,subj,teachername,classnumber,potokname))
+         (== forstudent `(,subj,teachername,classnumber))
+          (== forteacher `(,subj,classnumber,potokname))
          (conde
-          [(== a2 forstudent)
+          [(== a2 forteacher)
             (== b2 forstudent)
             (== c2 forstudent)
             (== x2 forstudent)
@@ -142,16 +148,17 @@ d)))))
           )))
 
 (define (inslecture3 subj first second third fourth teachersched schedclass potokname teachername classnumber)
-   (fresh (a1 a2 a3 a4 a5 a6 a7 b1 b2 b3 b4 b5 b6 b7 c1 c2 c3 c4 c5 c6 c7 x1 x2 x3 x4 x5 x6 x7 n1 n2 n3 n4 n5 n6 n7 m1 m2 m3 m4 m5 m6 m7 forstudent)
+   (fresh (a1 a2 a3 a4 a5 a6 a7 b1 b2 b3 b4 b5 b6 b7 c1 c2 c3 c4 c5 c6 c7 x1 x2 x3 x4 x5 x6 x7 n1 n2 n3 n4 n5 n6 n7 m1 m2 m3 m4 m5 m6 m7 forstudent forteacher)
          (== teachersched `(,a1,a2,a3,a4))
          (== first `(,b1,b2,b3,b4))
          (== second `(,c1,c2,c3,c4))
          (== third `(,x1,x2,x3,x4))
          (== fourth `(,n1,n2,n3,n4))
          (== schedclass `(,m1,m2,m3,m4))
-         (== forstudent `(,subj,teachername,classnumber,potokname))
+         (== forstudent `(,subj,teachername,classnumber))
+         (== forteacher `(,subj,classnumber,potokname))
          (conde
-          [(== a3 forstudent)
+          [(== a3 forteacher)
             (== b3 forstudent)
             (== c3 forstudent)
             (== x3 forstudent)
@@ -161,16 +168,17 @@ d)))))
           )))
 
 (define (inslecture4 subj first second third fourth teachersched schedclass potokname teachername classnumber)
-   (fresh (a1 a2 a3 a4 a5 a6 a7 b1 b2 b3 b4 b5 b6 b7 c1 c2 c3 c4 c5 c6 c7 x1 x2 x3 x4 x5 x6 x7 n1 n2 n3 n4 n5 n6 n7 m1 m2 m3 m4 m5 m6 m7 forstudent)
+   (fresh (a1 a2 a3 a4 a5 a6 a7 b1 b2 b3 b4 b5 b6 b7 c1 c2 c3 c4 c5 c6 c7 x1 x2 x3 x4 x5 x6 x7 n1 n2 n3 n4 n5 n6 n7 m1 m2 m3 m4 m5 m6 m7 forstudent forteacher)
          (== teachersched `(,a1,a2,a3,a4))
          (== first `(,b1,b2,b3,b4))
          (== second `(,c1,c2,c3,c4))
          (== third `(,x1,x2,x3,x4))
          (== fourth `(,n1,n2,n3,n4))
          (== schedclass `(,m1,m2,m3,m4))
-         (== forstudent `(,subj,teachername,classnumber,potokname))
+         (== forstudent `(,subj,teachername,classnumber))
+          (== forteacher `(,subj,classnumber,potokname))
          (conde
-          [(== a4 forstudent)
+          [(== a4 forteacher)
             (== b4 forstudent)
             (== c4 forstudent)
             (== x4 forstudent)
@@ -222,21 +230,26 @@ d)))))
    ))
 
 
-
-
-(time (run 1 (q) (fresh (a1 a2 a3 a4 a5 a6 a7 a8 b1 b2 b3 b4 b5 b6 b7 b8 b07 b08 b09 b10 teachersched schedclass n1 n2 n3 m1 m2 x1 x2 x3 x4 x5) (init_sched b5) (init_sched b6) (init_manysched a1 a2 a3 a4 a5 a6 a7 a8) (init_manysched b1 b2 b3 b4 b07 b08 b09 b10); работает за 1.5 секунды (1 вариант), 10 вариантов за 2 секунды, 100 за 4 секунды / со вставкой лекций в среду работает также за 1,5 секунды для 1 раза, но для 100 раз уже 3,99 секунды
+(time (run 1 (q) (fresh (a1 a2 a3 a4 a5 a6 a7 a8 b1 b2 b3 b4 b5 b6 b7 b8 b07 b08 b09 b10 teachersched schedclass n1 n2 n3 m1 m2 x1 x2 x3 x4 x5 c07 c08 c09 c10 l1 l2 l3 l4 l5 l6 l7 l8 l9 l10 l11 l12 l13 l14) (init_manysched c07 c08 c09 c10 l1 l2 l3 l4) (init_sched b5) (init_sched b6) (init_manysched a1 a2 a3 a4 a5 a6 a7 a8) (init_manysched b1 b2 b3 b4 b07 b08 b09 b10); работает за 1.5 секунды (1 вариант), 10 вариантов за 2 секунды, 100 за 4 секунды / со вставкой лекций в среду работает также за 1,5 секунды для 1 раза, но для 100 раз уже 3,99 секунды
            (== teachersched `(,a1,a2,a3,a4,a5,a6)) (== schedclass `(,b1,b2,b3,b4))
-         ;  (lec '(matanlec1 matanlec2 alglec geomlec inflec difflec ) b07 b08 b09 b10 `(,a1,a1,a2,a3,a4,a4) schedclass '((matanlec1 matanlec2 alglec geomlec inflec difflec)))
-         (lec '(matanlec1 matanlec2 alglec geomlec inflec difflec) b07 b08 b09 b10 `(,a1,a1,a2,a3,a4,a4) schedclass '((matanlec1 matanlec2 alglec geomlec inflec difflec)(matanlec1 matanlec2 alglec geomlec inflec difflec)(matanlec1 matanlec2 alglec geomlec inflec difflec)(matanlec1 matanlec2 alglec geomlec inflec difflec))
-              'matobes '(1препод 1препод 2препод 3препод 4препод 4препод) '(1аудитория 2аудитория 3аудитория 4аудитория))
+        
+         (lec '(matanlec1 matanlec2 alglec geomlec inflec difflec) b07 b08 b09 b10 `(,a8,a8,a2,a3,a4,a4) `(,b1,b2,b3,b4) '((matanlec1 matanlec2 alglec geomlec inflec difflec)(matanlec1 matanlec2 alglec geomlec inflec difflec)(matanlec1 matanlec2 alglec geomlec inflec difflec)(matanlec1 matanlec2 alglec geomlec inflec difflec))
+              'matobes1 '(Иванов Иванов Петров Васечкин 4препод 4препод) '(1аудитория 2аудитория 3аудитория 4аудитория))
+         (lec '(matanlec1 matanlec2 alglec geomlec inflec difflec) c07 c08 c09 c10 `(,a8,a8,a2,a3,a4,a4) `(,b1,b2,b4,b3) '((matanlec1 matanlec2 alglec geomlec inflec difflec)(matanlec1 matanlec2 alglec geomlec inflec difflec)(matanlec1 matanlec2 alglec geomlec inflec difflec)(matanlec1 matanlec2 alglec geomlec inflec difflec))
+              'matobes2 '(Иванов Иванов Петров Васечкин 4препод 4препод) '(1аудитория 2аудитория 4аудитория 3аудитория))
            (sched '((matan1 matan2 alg1 geom1 diff1 prog1 eng1) (matan1 matan2 alg1 geom1 diff1 prog1 eng1)  (matan1 matan2 alg1 geom1 diff1 prog1 eng1) (matan1 matan2 alg1 geom1 diff1 prog1 eng1))
                   `(,b07,b08,b09,b10) `((,a1,a1,a2,a3,a4,a5,a6)(,a1,a1,a2,a3,a4,a5,a6)(,a1,a1,a2,a3,a4,a5,a6)(,a1,a1,a2,a3,a4,a5,a6)) `(,b1,b2,b3,b4)
                   '((matan1 matan2 alg1 geom1 diff1 prog1 eng1 matanlecture1 matanlecture2 alglecture geomlecture difflecture inflecture)(matan1 matan2 alg1 geom1 diff1 prog1 eng1)(matan1 matan2 alg1 geom1 diff1 prog1 eng1)(matan1 matan2 alg1 geom1 diff1 prog1 eng1))
                   '(группа1 группа2 группа3 группа4) '((преп1 преп1 преп2 преп3 преп4 преп5 преп6)(преп1 преп1 преп2 преп3 преп4 преп5 преп6)(преп1 преп1 преп2 преп3 преп4 преп5 преп6)(преп1 преп1 преп2 преп3 преп4 преп5 преп6))
-                  '(номер1 номер2 номер3 номер4)
+                  '(1аудитория 2аудитория 3аудитория 4аудитория)
                  )
+           (sched '((matan1 matan2 alg1 geom1 diff1 prog1 eng1) (matan1 matan2 alg1 geom1 diff1 prog1 eng1)  (matan1 matan2 alg1 geom1 diff1 prog1 eng1) (matan1 matan2 alg1 geom1 diff1 prog1 eng1))
+                  `(,c07,c08,c09,c10) `((,a1,a1,a2,a3,a4,a5,a6)(,a1,a1,a2,a3,a4,a5,a6)(,a1,a1,a2,a3,a4,a5,a6)(,a1,a1,a2,a3,a4,a5,a6)) `(,b1,b2,b3,b4)
+                  '((matan1 matan2 alg1 geom1 diff1 prog1 eng1 matanlecture1 matanlecture2 alglecture geomlecture difflecture inflecture)(matan1 matan2 alg1 geom1 diff1 prog1 eng1)(matan1 matan2 alg1 geom1 diff1 prog1 eng1)(matan1 matan2 alg1 geom1 diff1 prog1 eng1))
+                  '(группа5 группа6 группа7 группа8) '((преп1 преп1 преп2 преп3 преп4 преп5 преп6)(преп1 преп1 преп2 преп3 преп4 преп5 преп6)(преп1 преп1 преп2 преп3 преп4 преп5 преп6)(преп1 преп1 преп2 преп3 преп4 преп5 преп6))
+                  '(1аудитория 2аудитория 3аудитория 4аудитория)
+                 )
+           
         
           
-           (== q `(,b07,b08,b09,b10,a1,a2,a3,a4,a5,a6,b5,b1,b2,b3,b4,b6)))));для одного потока выводит полностью за 25 секунд
-
-
+           (== q `(,b07,b08,b09,b10,c07,c08,c09,c10,a8,a2,a3,a4,a1,a5,a6,a7,b5,b1,b2,b3,b4,b6)))))
